@@ -6,6 +6,6 @@ export const Paragraph = styled.p`
     border-radius: 1.5rem;
     margin-inline: auto;
     border: 2px solid black;
-    background-color: ${props => props.active && '#dfcadd'};
-    color: #000;
+    background-color: ${props => props.active ? '#cf91c9' : '#fff'};
+    opacity: ${props => props.active ? 1 : 0.4}
 ` 

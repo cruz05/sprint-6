@@ -7,7 +7,7 @@ export default function Modal({closeModal}) {
       <div>
           <h1>Benvingut!</h1>
           <p>Podràs llegir la història i visualitzar les imatges navegant amb els botons col·locats a dalt.</p>
-          <Button bgColor='#cfa1c9' textColor='black' onClick={closeModal}>Començar</Button>
+          <Button bgColor='#cfa1c9' onClick={closeModal}>Començar</Button>
       </div>
     </StyledModal>
   )

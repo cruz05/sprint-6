@@ -7,4 +7,5 @@ export const Paragraph = styled.p`
     margin-inline: auto;
     border: 2px solid black;
     background-color: ${props => props.active && '#dfcadd'};
+    color: #000;
 ` 

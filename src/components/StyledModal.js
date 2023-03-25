@@ -11,10 +11,11 @@ export const StyledModal = styled.div`
         top: 50%; 
         left: 50%;
         transform: translate(-50%, -50%);
-        min-width: 22rem;
+        width: 23rem;
         min-height: 15rem;
         background-color: white;
         padding: 0.8rem 1.3rem; 
         border-radius: 1rem;
+        z-index: 3;
     }
 `

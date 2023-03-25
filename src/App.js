@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Button } from './components/StyledButton';
 import Scene from './components/Scene';
-import './App.css'
 import Modal from './components/Modal';
+import {Image} from './components/StyledImage'
+import { scenes } from './data';
+import './App.css'
 
 function App() {
-  const [story, setStory] = useState([])
   const [counter, setCounter] = useState(0)
   const [modal, setModal] = useState(true)
+  const [image, setImage] = useState('')
 
   useEffect(() => {
-    fetch("./story.json")
-      .then(res => res.json())
-      .then(data => {
-        const { scenes } = data
-        setStory(scenes)
-      })
-  }, [])
-
+    setImage(scenes[counter].img)
+  }, [counter])
+  
   const selectPreviousScene = () => {
     if(counter > 0) {
       setCounter(counter - 1)
@@ -25,7 +22,7 @@ function App() {
   }
 
   const selectNextScene = () => {
-    if(counter < story.length - 1) {
+    if(counter < scenes.length - 1) {
       setCounter(counter + 1)
     }
   }
@@ -37,13 +34,14 @@ function App() {
       {modal && <Modal closeModal={onClose}/>} 
       <main className="App">
         <div className='buttons'>
-          <Button bgColor='black' onClick={selectPreviousScene}>Anterior</Button>
-          <Button bgColor='black' onClick={selectNextScene}>Següent</Button>
+          <Button onClick={selectPreviousScene}>Anterior</Button>
+          <Button onClick={selectNextScene}>Següent</Button>
         </div>
         <section>
         { 
-        story.map((scene, index) => <Scene key={index} status={index === counter && true} text={scene} />) 
+          scenes.map((scene, index) => <Scene key={index} status={index === counter && true} text={scene.txt} />) 
         }
+          <Image src={image} alt={`Ilustration of scene ${counter}`}/>
         </section>
       </main>
     </>
